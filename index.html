@@ -1,0 +1,1109 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>灵虾导航 - 明快科技虾元素导航站</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF7A28',
+                        secondary: '#06B6D4',
+                        light: '#F0F9FF',
+                        dark: '#0f172a',
+                        darkCard: '#1e293b',
+                        darkText: '#e2e8f0',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .card-hover {
+                @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-primary/50;
+            }
+            .dark .card-hover {
+                @apply hover:border-primary/50 hover:shadow-2xl;
+            }
+            .section-title {
+                @apply text-2xl font-bold text-primary mb-6 flex items-center gap-2;
+            }
+            .link-icon {
+                @apply w-10 h-10 rounded-lg flex-shrink-0 object-contain bg-gray-50 p-1;
+            }
+            .dark .link-icon {
+                @apply bg-darkCard;
+            }
+            .sidebar-link {
+                @apply flex items-center gap-2 px-4 py-3 rounded-lg transition-all duration-200 hover:bg-primary/10 hover:text-primary;
+            }
+            .dark .sidebar-link {
+                @apply hover:bg-primary/20;
+            }
+            .sidebar-link.active {
+                @apply bg-primary/10 text-primary font-medium;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-b from-light to-white min-h-screen dark:from-dark dark:to-slate-900 transition-colors duration-300">
+    <!-- 头部导航 -->
+    <header class="sticky top-0 z-50 bg-white/80 dark:bg-dark/80 backdrop-blur-md shadow-sm transition-colors duration-300">
+        <div class="max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 py-4 flex items-center gap-3">
+            <button id="sidebarToggle" class="lg:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-darkCard transition-colors">
+                <i class="fa fa-bars text-primary text-xl"></i>
+            </button>
+            <img src="https://aka.doubaocdn.com/s/AH2U1wGho0" alt="灵虾导航Logo" class="w-12 h-12">
+            <h1 class="text-2xl font-bold text-primary">灵虾导航</h1>
+            <div class="flex-1 max-w-md mx-4 hidden md:block">
+                <div class="relative">
+                    <input type="text" id="searchInput" placeholder="搜索资源..." class="w-full px-4 py-2 pl-10 rounded-full border border-gray-200 dark:border-darkCard dark:bg-darkCard dark:text-darkText focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all">
+                    <i class="fa fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500"></i>
+                </div>
+            </div>
+            <p class="text-gray-500 dark:text-gray-400 text-sm ml-auto hidden xl:block">一站式AI生态资源导航，轻快便捷，一键直达</p>
+            <button id="themeToggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-darkCard transition-colors">
+                <i class="fa fa-moon-o text-primary text-xl dark:hidden"></i>
+                <i class="fa fa-sun-o text-primary text-xl hidden dark:block"></i>
+            </button>
+        </div>
+        <div class="md:hidden px-4 pb-4">
+            <div class="relative">
+                <input type="text" id="searchInputMobile" placeholder="搜索资源..." class="w-full px-4 py-2 pl-10 rounded-full border border-gray-200 dark:border-darkCard dark:bg-darkCard dark:text-darkText focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all">
+                <i class="fa fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex justify-center">
+        <div class="flex max-w-7xl 2xl:max-w-[1600px] w-full">
+        <!-- 侧边栏 -->
+        <aside id="sidebar" class="fixed lg:static top-[88px] left-0 h-[calc(100vh-88px)] w-64 bg-white dark:bg-dark shadow-lg lg:shadow-none transform -translate-x-full lg:translate-x-0 transition-transform duration-300 z-40 overflow-y-auto lg:sticky lg:top-[88px]">
+            <nav class="p-4">
+                <h3 class="text-sm font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-4">导航分类</h3>
+                <ul class="space-y-1">
+                    <li><a href="#lingxia-platform" class="sidebar-link text-gray-700 dark:text-darkText"><i class="fa fa-paw w-5"></i> 灵虾平台</a></li>
+                    <li><a href="#ai-models" class="sidebar-link text-gray-700 dark:text-darkText"><i class="fa fa-microchip w-5"></i> AI模型</a></li>
+                    <li><a href="#learning-resources" class="sidebar-link text-gray-700 dark:text-darkText"><i class="fa fa-book w-5"></i> 学习资源</a></li>
+                    <li><a href="#cloud-deploy" class="sidebar-link text-gray-700 dark:text-darkText"><i class="fa fa-cloud w-5"></i> 云端部署</a></li>
+                    <li><a href="#skills" class="sidebar-link text-gray-700 dark:text-darkText"><i class="fa fa-cogs w-5"></i> Skill技能</a></li>
+                    <li><a href="#agent-resources" class="sidebar-link text-gray-700 dark:text-darkText"><i class="fa fa-users w-5"></i> Agent资源</a></li>
+                    <li><a href="#security" class="sidebar-link text-gray-700 dark:text-darkText"><i class="fa fa-shield w-5"></i> 安全养虾</a></li>
+                    <li><a href="#maas" class="sidebar-link text-gray-700 dark:text-darkText"><i class="fa fa-webhook w-5"></i> MaaS平台</a></li>
+                    <li><a href="#web3" class="sidebar-link text-gray-700 dark:text-darkText"><i class="fa fa-bitcoin w-5"></i> Web3币圈</a></li>
+                    <li><a href="#hardware" class="sidebar-link text-gray-700 dark:text-darkText"><i class="fa fa-desktop w-5"></i> 主机设备</a></li>
+                    <li><a href="#friends" class="sidebar-link text-gray-700 dark:text-darkText"><i class="fa fa-link w-5"></i> 友情链接</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- 侧边栏遮罩 -->
+        <div id="sidebarOverlay" class="fixed inset-0 bg-black/50 z-30 hidden lg:hidden" onclick="toggleSidebar()"></div>
+
+        <main class="flex-1 max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 py-8 lg:ml-0">
+        <!-- 灵虾平台板块 -->
+        <section id="lingxia-platform" class="mb-12">
+            <h2 class="section-title">
+                <i class="fa fa-paw text-secondary"></i>
+                灵虾平台
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4">
+                <a href="https://openclaw.ai/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/aX0x/openclawai.png" alt="OpenClaw官网" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">OpenClaw官网</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">跨平台个人AI助手，通过聊天应用管理邮件、日程等任务，支持本地部署和技能扩展。</p>
+                    </div>
+                </a>
+                <a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/02/20/n5Br/1a81fbf.png" alt="OpenClaw官方github" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">OpenClaw官方github</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">跨平台个人AI助手，支持任意操作系统，以独特方式提供服务。</p>
+                    </div>
+                </a>
+                <a href="https://discord.gg/openclaw" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/10/q0Gm/discordcom.png" alt="Discord官方服务器" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">Discord官方服务器</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">专为游戏玩家设计的语音聊天平台，支持实时语音、文字和视频通话。</p>
+                    </div>
+                </a>
+                <a href="https://www.kimi.com/bot" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/vt0Z/wwwkimicom.png" alt="Kimi Claw" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">Kimi Claw</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">7x24小时AI助手，具备长期记忆与自动化能力，支持主动执行定时任务。</p>
+                    </div>
+                </a>
+                <a href="https://agent.minimaxi.com/max-claw" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/aE2u/agentminimaxicom.png" alt="MaxClaw" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">MaxClaw</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">基于 MiniMax OpenClaw 的 AI 智能体创建平台，支持定制专业技能和多智能体协作。</p>
+                    </div>
+                </a>
+                <a href="https://www.volcengine.com/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/nR9f/wwwvolcenginecom.png" alt="ArkClaw" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">ArkClaw</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">字节跳动旗下AI云服务平台，提供豆包大模型和AI云原生一站式服务。</p>
+                    </div>
+                </a>
+                <a href="https://miaoda.feishu.cn/bot" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/Qg1w/openclawfeishucn.png" alt="飞书OpenClaw" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">飞书OpenClaw</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">飞书 OpenClaw 提供原版 OpenClaw 的一键部署服务，开箱即用。</p>
+                    </div>
+                </a>
+                <a href="https://www.coze.cn/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/Y3nb/wwwcozecn.png" alt="扣子Coze" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">扣子Coze</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">一站式AI办公助手，集成写作、PPT、表格、设计等全功能，助力多场景任务自动化。</p>
+                    </div>
+                </a>
+                <a href="https://cloud.baidu.com/product/duclaw.html" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/aJ8c/cloudbaiducom.png" alt="DueClaw" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">DueClaw</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">百度智能云DuClaw是7x24小时在线个人AI助理，订阅千帆Coding Plan即可低成本快速构建。</p>
+                    </div>
+                </a>
+                <a href="https://www.stepfun.com/openclaw" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/0znV/wwwstepfuncom.png" alt="StepClaw" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">StepClaw</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">阶跃AI是个人效率助手，提供知识查询、语言学习、创意写作和代码编写等功能。</p>
+                    </div>
+                </a>
+                <a href="https://claw.guanjia.qq.com/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/b9nZ/clawguanjiaqqcom.png" alt="QClaw" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">QClaw</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">腾讯出品的微信远程AI助手，通过微信操控电脑处理文件、执行任务，无需编程基础。</p>
+                    </div>
+                </a>
+                <a href="https://lobsterai.youdao.com/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/h4Jn/lobsteraiyoudaocom.png" alt="Lobsterai有道龙虾" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">Lobsterai有道龙虾</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">有道AI个人助理，7×24小时全场景智能服务。</p>
+                    </div>
+                </a>
+                <a href="https://www.codebuddy.cn/work/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/02/20/ct8U/b562d24.png" alt="Codebuddy" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">Codebuddy</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">腾讯云推出的AI办公工具，支持多Agent并行处理复杂任务，提升工作效率。</p>
+                    </div>
+                </a>
+                <a href="https://autoglm.zhipuai.cn/autoclaw/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/lI2x/autoglmzhipuaicn.png" alt="AutoClaw" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">AutoClaw</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">支持OpenClaw一键安装的AI助手，集成飞书、模型热插拔与自动化能力，小白也能快速上手。</p>
+                    </div>
+                </a>
+                <a href="https://www.dingtalk.com/wukong" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/uz6G/wwwdingtalkcom.png" alt="悟空" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">悟空</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">悟空是一款智能助手应用，提供便捷的AI服务。</p>
+                    </div>
+                </a>
+                <a href="https://agent.xfyun.cn/astron-claw" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/qj9F/agentxfyuncn.png" alt="AstronClaw" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">AstronClaw</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">一站式智能体开发平台，支持灵活创建专业智能体，整合丰富资源并支持多端发布。</p>
+                    </div>
+                </a>
+                <a href="https://claw.360.cn/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/20/wSe2/360.png" alt="360安全龙虾" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">360安全龙虾</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">360安全龙虾是一款多模型AI助手，提供技能生态与安全保障，支持Windows客户端下载。</p>
+                    </div>
+                </a>
+                <a href="https://qoder.com/qoderwork" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/8vTy/qodercom.png" alt="QoderWork" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">QoderWork</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">本地AI桌面助手，自主规划执行任务，保护隐私，支持多格式文件处理。</p>
+                    </div>
+                </a>
+                <a href="https://www.stepfun.com/download" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/0znV/wwwstepfuncom.png" alt="阶跃桌面伙伴" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">阶跃桌面伙伴</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">操作系统级AI助手，跨平台自主处理信息、管理文件并执行定时任务，支持个性化定制。</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- AI模型板块 -->
+        <section id="ai-models" class="mb-12">
+            <h2 class="section-title">
+                <i class="fa fa-microchip text-secondary"></i>
+                AI模型
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4">
+                <a href="https://platform.moonshot.cn/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/vt0Z/wwwkimicom.png" alt="Kimi" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">Kimi</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">提供万亿参数K2.5大模型API，支持超长上下文和多模态理解，助力开发者构建AI应用。</p>
+                    </div>
+                </a>
+                <a href="https://www.minimaxi.com/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/20/bQf2/wwwminimaxicom.png" alt="MiniMax" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">MiniMax</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">全球领先的通用人工智能公司，提供多模态大模型及AI原生产品，服务超2亿用户。</p>
+                    </div>
+                </a>
+                <a href="https://www.bigmodel.cn/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/02/20/s7Qr/9618c21.png" alt="智谱GLM" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">智谱GLM</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">智谱AI开放平台提供国产通用大模型及多模态视觉模型，支持行业应用与AI开发。</p>
+                    </div>
+                </a>
+                <a href="https://www.deepseek.com/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/20/spT4/wwwdeepseekcom.png" alt="DeepSeek" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">DeepSeek</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">DeepSeek专注于研发领先的通用人工智能模型，提供免费对话、API调用及开源大模型服务。</p>
+                    </div>
+                </a>
+                <a href="https://www.aliyun.com/product/tongyi" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/02/20/J4fz/b0b2306.png" alt="千问QWen" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">千问QWen</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">阿里云千问大模型提供一站式AI推理与部署服务，具备高性能、低成本及全模态能力。</p>
+                    </div>
+                </a>
+                <a href="https://www.doubao.com/chat/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/20/ou2D/wwwdoubaocom.png" alt="豆包" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">豆包</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">豆包AI助手集成Seedance 2.0视频生成模型，提供免费智能对话、创作辅助与灵感激发服务。</p>
+                    </div>
+                </a>
+                <a href="https://platform.claude.com/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/20/8Syq/platformclaudecom.png" alt="Claude" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">Claude</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">基于Claude API的AI应用开发平台</p>
+                    </div>
+                </a>
+                <a href="https://aistudio.google.com/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/02/20/m1Lg/e7e8302.png" alt="Gemini" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">Gemini</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">快速从提示到生产，使用 Gemini 加速 AI 应用开发。</p>
+                    </div>
+                </a>
+                <a href="https://platform.openai.com/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/20/r4Uu/platformopenaicom.png" alt="ChatGPT" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">ChatGPT</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">提供OpenAI API资源、教程和动态示例，助力开发者高效集成人工智能功能。</p>
+                    </div>
+                </a>
+                <a href="https://console.x.ai/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/20/bTm0/consolexai.png" alt="Grok" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">Grok</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">提供Grok AI的API接口和开发者工具，支持文本、语音及图像生成功能。</p>
+                    </div>
+                </a>
+                <a href="https://www.llama.com/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/20/x8Va/wwwllamacom.png" alt="Llama" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">Llama</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">Meta推出的开源大语言模型家族，用于像ChatGPT一样理解和生成文本。</p>
+                    </div>
+                </a>
+                <a href="https://mistral.ai/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/20/w0Xi/mistralai.png" alt="Mistral" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">Mistral</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">为企业提供前沿AI平台，支持定制化AI助手、智能体部署及私有化模型训练。</p>
+                    </div>
+                </a>
+                <a href="https://mimo.xiaomi.com/zh/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/20/i7Bh/mimoxiaomicom.png" alt="Mimo" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">Mimo</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">小米MiMo官方博客，分享探索与热爱，提供中英双语内容。</p>
+                    </div>
+                </a>
+                <a href="https://xinghuo.xfyun.cn/sparkapi" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/7Wvq/xinghuoxfyuncn.png" alt="讯飞星火" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">讯飞星火</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">讯飞星火是科大讯飞推出的AI助手，具备跨领域知识、语言理解和多任务执行能力。</p>
+                    </div>
+                </a>
+                <a href="https://cloud.tencent.com/product/tclm" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/t5oA/cloudtencentcom.png" alt="腾讯混元" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">腾讯混元</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">腾讯自研多模态大模型，提供文本、图像、视频、3D生成及企业级AI服务。</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- 学习资源板块 -->
+        <section id="learning-resources" class="mb-12">
+            <h2 class="section-title">
+                <i class="fa fa-book text-secondary"></i>
+                学习资源
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4">
+                <a href="https://docs.openclaw.ai/zh-CN" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/qT6z/docsopenclawai.png" alt="OpenClaw官方手册" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">OpenClaw官方手册</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">OpenClaw 是一个 AI 智能体网关，支持连接多消息平台，并提供 Web 控制界面统一管理。</p>
+                    </div>
+                </a>
+                <a href="https://my.feishu.cn/wiki/H27Iw9ussiaYbokymhncExtjnAh" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/Qg1w/openclawfeishucn.png" alt="OpenClaw橙皮书" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">OpenClaw橙皮书</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">OpenClaw橙皮书：从入门到精通.PDF</p>
+                    </div>
+                </a>
+                <a href="https://yunyinghui.feishu.cn/wiki/Ru7PwG82qiDGo1kGMFZcxqpGnnf" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/W7ai/yunyinghuifeishucn.png" alt="万象AI实验室" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">万象AI实验室</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">OpenClaw学习手册</p>
+                    </div>
+                </a>
+                <a href="https://waytoagi.feishu.cn/wiki/CCR4wl3upi6dF9kVE5YcAcGcnlU" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/4uzG/waytoagifeishucn.png" alt="WaytoAGI" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">WaytoAGI</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">WaytoAGI：通往AGI之路。详解OpenClaw</p>
+                    </div>
+                </a>
+                <a href="https://uniquecapital.feishu.cn/wiki/Nwwiwh6PNiesZqkWNw7cWegjn2c" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/Qg1w/openclawfeishucn.png" alt="非凡产研" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">非凡产研</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">养虾乐园</p>
+                    </div>
+                </a>
+                <a href="https://t0woxppdywz.feishu.cn/wiki/Oxf0wcTECie8KkkwkIlc6psanNe" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/Qg1w/openclawfeishucn.png" alt="麻小玩虾指南" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">麻小玩虾指南</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">玩虾指南持续更新</p>
+                    </div>
+                </a>
+                <a href="https://my.feishu.cn/wiki/NzvOwzHdKiwSe2kPLx0cs1jlncg" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/Qg1w/openclawfeishucn.png" alt="OpenClaw中文教程" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">OpenClaw中文教程</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">OpenClaw中文教程</p>
+                    </div>
+                </a>
+                <a href="https://my.feishu.cn/docx/P6zsdsgYco6i4XxLeIccvlpvnQe" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/Qg1w/openclawfeishucn.png" alt="OpenClaw入门" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">OpenClaw入门</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">OpenClaw从入门到精通</p>
+                    </div>
+                </a>
+                <a href="https://datawhalechina.github.io/hello-claw/cn/adopt/intro/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/20/3hAb/github.jpeg" alt="Hello Claw教程" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">Hello Claw教程</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">OpenClaw：从对话到执行的 AI 革命</p>
+                    </div>
+                </a>
+                <a href="https://awesome.tryopenclaw.asia/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/20/cZp5/ClawNav.png" alt="Awesome教程" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">Awesome教程</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">从零开始玩转OpenClaw的全面中文教程，涵盖部署、实战与避坑指南。</p>
+                    </div>
+                </a>
+                <a href="https://larkcommunity.feishu.cn/wiki/GGJPwJ2IfiTynVk2Vy4cZbRvn2f" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/Qg1w/openclawfeishucn.png" alt="飞书官方修炼指南" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">飞书官方修炼指南</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">OpenClaw x 飞书官方修炼指南</p>
+                    </div>
+                </a>
+                <a href="https://github.com/AlexAnys/awesome-openclaw-usecases-zh" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/02/20/n5Br/1a81fbf.png" alt="中文用例大全" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">中文用例大全</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">OpenClaw AI智能体中文用例大全，提供40多个真实场景，涵盖自动化办公、内容创作等。</p>
+                    </div>
+                </a>
+                <a href="https://www.reddit.com/r/openclaw/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/10/dHi6/wwwredditcom.png" alt="Reddit社区" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">Reddit社区</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">Reddit是一个基于兴趣社区的社交平台，用户可以讨论各种话题并分享内容。</p>
+                    </div>
+                </a>
+                <a href="https://longxiabot.club/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/22/i8jP/longxiabotclub.png" alt="龙虾俱乐部" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">龙虾俱乐部</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">OpenClaw中文资源站，提供结构化安装部署、Skills资源和生态更新指南。</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- 云端部署板块 -->
+        <section id="cloud-deploy" class="mb-12">
+            <h2 class="section-title">
+                <i class="fa fa-cloud text-secondary"></i>
+                云端部署
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4">
+                <a href="https://www.aliyun.com/activity/ecs/clawdbot?userCode=v6lqcoce" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/02/20/J4fz/b0b2306.png" alt="阿里云" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">阿里云</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">基于阿里云百炼的7*24小时AI助理，支持消息指令执行，快速构建个性化智能体。</p>
+                    </div>
+                </a>
+                <a href="https://curl.qcloud.com/qiUT4ZrJ" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/t5oA/cloudtencentcom.png" alt="腾讯云" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">腾讯云</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">在云端秒级部署全能AI助手，支持主流IM，7x24小时在线响应。</p>
+                    </div>
+                </a>
+                <a href="https://www.volcengine.com/activity/clawdbot" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/nR9f/wwwvolcenginecom.png" alt="火山引擎" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">火山引擎</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">一键部署 OpenClaw，分钟级部署，拥有您的私人AI管家。云服务器包月低至￥9.9</p>
+                    </div>
+                </a>
+                <a href="https://cloud.baidu.com/product/BCC/moltbot.html" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/aJ8c/cloudbaiducom.png" alt="百度智能云" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">百度智能云</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">百度智能云OpenClaw，一键部署7x24小时AI助理，无缝接入主流办公应用。</p>
+                    </div>
+                </a>
+                <a href="https://activity.huaweicloud.com/openclaw.html" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/07/W2xj/activityhuaweicloudcom.png" alt="华为云" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">华为云</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">华为云提供OpenClaw一键部署服务，9.9元起即可快速拥有AI助理，支持接入主流办公平台。</p>
+                    </div>
+                </a>
+                <a href="https://www.jdcloud.com/cn/pages/openclaw" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/20/0zaM/4cb6029.png" alt="京东云" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">京东云</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">京东云提供一站式云计算服务，涵盖弹性计算、存储、AI及安全等产品。</p>
+                    </div>
+                </a>
+                <a href="https://www.scnet.cn/ui/chatbot/openclaw" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/20/b0Yi/dc72b4f.png" alt="国家超算互联网" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">国家超算互联网</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">提供智能助手部署服务，支持一键部署、API调用及共享存储，保障隐私安全。</p>
+                    </div>
+                </a>
+                <a href="https://www.ctyun.cn/act/OpenClaw" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/0llJ/wwwctyuncn.png" alt="天翼云" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">天翼云</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">安全隔离版OpenClaw部署服务，让AI干活不“失控”</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Skill技能板块 -->
+        <section id="skills" class="mb-12">
+            <h2 class="section-title">
+                <i class="fa fa-cogs text-secondary"></i>
+                Skill技能
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4">
+                <a href="https://clawhub.ai/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/s8Tf/clawhubai.png" alt="ClawHub" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">ClawHub</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">专为AI代理设计的技能注册中心，支持向量搜索与版本管理，开源无门槛。</p>
+                    </div>
+                </a>
+                <a href="https://skills.sh/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/hXx2/skillssh.png" alt="Skill.sh" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">Skill.sh</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">AI智能体技能库，提供可复用能力，一键安装增强代理功能。</p>
+                    </div>
+                </a>
+                <a href="https://skillhub.tencent.com/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/Zyc5/skillhubtencentcom.png" alt="Skill Hub" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">Skill Hub</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">专为中国用户优化的AI技能社区，精选高质量技能，安全审核，实用性强。</p>
+                    </div>
+                </a>
+                <a href="https://xiaping.coze.site/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://xiaping.coze.site/angry-shrimp.png" alt="虾评Skill" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">虾评Skill</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">面向Agent的精品技能分享评测平台，支持OpenClaw框架，即装即用。</p>
+                    </div>
+                </a>
+                <a href="https://www.skill-cn.com/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/1fYj/wwwskill-cncom.png" alt="Skill Hub" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">Skill Hub</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">聚合实战技能案例与可复用方案，提供高效工作流与AI工具应用指南。</p>
+                    </div>
+                </a>
+                <a href="https://www.skill-cn.com/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/1fYj/wwwskill-cncom.png" alt="Skill Hub中国" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">Skill Hub中国</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">聚合实战技能案例与可复用方案，提供AI编程、设计、自动化等高效工作流。</p>
+                    </div>
+                </a>
+                <a href="https://agentskillshub.top/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/lQb8/agentskillshubtop.png" alt="Agent Skills Hub" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">Agent Skills Hub</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">发现、比较和探索海量开源AI智能体技能、工具与MCP服务器，优化您的AI工作流。</p>
+                    </div>
+                </a>
+                <a href="https://openclawdirectory.co.uk/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/q5vC/openclawdirectorycouk.png" alt="Openclaw Directory" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">Openclaw Directory</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">OpenClaw工具目录，提供部署器、技能和插件等资源，方便查找与测试。</p>
+                    </div>
+                </a>
+                <a href="https://openclawdir.com/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/8lcH/openclawdircom.png" alt="OpenClaw Dir" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">OpenClaw Dir</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">OpenClaw AI助手生态社区目录，提供技能、插件和职位资源。</p>
+                    </div>
+                </a>
+                <a href="https://skillsmp.com/zh" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/Oi7a/skillsmpcom.png" alt="Skills MP" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">Skills MP</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">聚合超过50万个AI助手技能，兼容Claude、Codex和ChatGPT，采用开放的SKILL.md标准。</p>
+                    </div>
+                </a>
+                <a href="https://github.com/VoltAgent/awesome-openclaw-skills" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/02/20/n5Br/1a81fbf.png" alt="Awesome Skills" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">Awesome Skills</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">收录5400多个OpenClaw技能，按类别整理，扩展AI助手本地功能。</p>
+                    </div>
+                </a>
+                <a href="https://cryptoskills.dev/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/20/n3Ny/crypto.png" alt="Crypto Skills" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">Crypto Skills</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">开源AI智能体技能库，覆盖以太坊、Solana等15条链的97种协议，提供生产就绪的代码模块。</p>
+                    </div>
+                </a>
+                <a href="https://hub.cocoloop.cn/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/20/Dml9/cocoloop.png" alt="Cocoloop" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">Cocoloop</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">更快更安全的AI Agent技能商店，提供数千个经过安全认证的精选技能。</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Agent资源板块 -->
+        <section id="agent-resources" class="mb-12">
+            <h2 class="section-title">
+                <i class="fa fa-users text-secondary"></i>
+                Agent资源
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4">
+                <a href="https://www.moltbook.cn/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://www.moltbook.cn/logo.png" alt="MoltBook" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">MoltBook</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">智能体社交网络，支持发布、讨论、点赞与创建社区，人类可围观学习。</p>
+                    </div>
+                </a>
+                <a href="https://instreet.coze.site/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/hXx2/skillssh.png" alt="InStreet" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">InStreet</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">专为AI Agent打造的社交平台，支持发帖、互动与技能分享，人类可围观。</p>
+                    </div>
+                </a>
+                <a href="https://clawdchat.ai/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/Znl5/clawdchatai.png" alt="虾聊" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">虾聊</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">AI Agent社交平台，支持机器人发帖互动与人类围观，提供去中心化身份和语义发现功能。</p>
+                    </div>
+                </a>
+                <a href="https://xialiaoai.com/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/E3no/xialiaoaicom.png" alt="虾聊" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">虾聊</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">专为AI Agent打造的社交网络，分享技术、探讨伦理、交流日常。</p>
+                    </div>
+                </a>
+                <a href="https://www.agentmail.to/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/voZ8/wwwagentmailto.png" alt="AgentMail" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">AgentMail</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">为AI智能体提供专属邮箱的API服务，支持实时收发、附件处理和自定义域名。</p>
+                    </div>
+                </a>
+                <a href="https://mailboxkit.com/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/20/abG3/mail.png" alt="MailBoxKit" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">MailBoxKit</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">为AI智能体提供真实邮箱地址的邮件基础设施。</p>
+                    </div>
+                </a>
+                <a href="https://souls.zip/shop" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/M1jy/soulszip.png" alt="Souls.zip" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">Souls.zip</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">提供生产级AI智能体灵魂与技能，涵盖工程、设计、运营等多领域，支持免费与付费选项。</p>
+                    </div>
+                </a>
+                <a href="https://trustmrr.com/special-category/openclaw" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/Dn0a/trustmrrcom.png" alt="Openclaw Startups" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">Openclaw Startups</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">开源AI助手生态，无需代码即可连接Telegram、Discord等平台，并追踪相关创业公司营收数据。</p>
+                    </div>
+                </a>
+                <a href="https://clawbench.net/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/xOd0/clawbenchnet.png" alt="Claw Bench排行" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">Claw Bench排行</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">AI编程智能体性能排行榜，提供跨框架、模型和任务类别的标准化评估。</p>
+                    </div>
+                </a>
+                <a href="https://clawpal.xyz/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/Bf9l/clawpalxyz.png" alt="Claw Pal" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">Claw Pal</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">可视化管理和修复OpenClaw AI代理的免费桌面应用，支持多平台，无需手动编辑配置文件。</p>
+                    </div>
+                </a>
+                <a href="https://clawwatcher.com/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/6Hki/clawwatchercom.png" alt="ClawWatcher" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">ClawWatcher</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">实时监控AI代理成本，提供用量看板、预算限制和支出警报。</p>
+                    </div>
+                </a>
+                <a href="https://clawmanager.ai/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/Csj3/clawmanagerai.png" alt="ClawManager" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">ClawManager</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">免费管理AI智能体，支持多平台部署与自动化，无需代码即可轻松配置。</p>
+                    </div>
+                </a>
+                <a href="https://github.com/TianyiDataScience/openclaw-control-center" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/02/20/n5Br/1a81fbf.png" alt="Control Center" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">Control Center</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">将OpenClaw从黑盒转变为本地可视化控制中心，实现可见、可信与可控。</p>
+                    </div>
+                </a>
+                <a href="https://openclawmp.cc/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/hXx2/skillssh.png" alt="水产市场" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">水产市场</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">探索、分享、安装AI Agent技能与插件，实现智能体的持续进化与协作。</p>
+                    </div>
+                </a>
+                <a href="https://matrix.tencent.com/clawscan/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://matrix.tencent.com/clawscan/images/logo.png" alt="EdgeOne ClawScan" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">EdgeOne ClawScan</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">AI绘画工具，提供智能图像生成服务。</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- 安全养虾板块 -->
+        <section id="security" class="mb-12">
+            <h2 class="section-title">
+                <i class="fa fa-shield text-secondary"></i>
+                安全养虾
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4">
+                <a href="https://openclaw.allegro.earth/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/p6Oz/openclawallegroearth.png" alt="暴露监控面板" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">暴露监控面板</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">公开暴露的OpenClaw实例监控面板，用于防御性安全感知。</p>
+                    </div>
+                </a>
+                <a href="https://mp.weixin.qq.com/s/R_hJseodUa8Q9eU4qUvuAg" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/20/4lzW/c65b68a.png" alt="OpenClaw极简安全实践指南" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">OpenClaw极简安全实践指南</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">慢雾安全团队发布的OpenClaw安全实践指南，构建三层防御矩阵，应对智能体专属风险。</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- MaaS平台板块 -->
+        <section id="maas" class="mb-12">
+            <h2 class="section-title">
+                <i class="fa fa-webhook text-secondary"></i>
+                MaaS平台
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4">
+                <a href="https://bailian.console.aliyun.com/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/02/20/J4fz/b0b2306.png" alt="阿里云" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">阿里云</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">阿里云大模型服务平台，提供模型训练、部署、推理一站式AI服务。</p>
+                    </div>
+                </a>
+                <a href="https://www.volcengine.com/product/ark" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/nR9f/wwwvolcenginecom.png" alt="火山方舟" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">火山方舟</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">字节跳动大模型服务平台，提供一站式大模型服务与应用开发能力。</p>
+                    </div>
+                </a>
+                <a href="https://cloud.baidu.com/product-s/qianfan_home" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/aJ8c/cloudbaiducom.png" alt="百度千帆" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">百度千帆</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">百度智能云千帆平台，一站式企业级大模型开发与应用服务平台。</p>
+                    </div>
+                </a>
+                <a href="https://www.siliconflow.cn/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/1Ycx/wwwsiliconflowcn.png" alt="硅基流动" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">硅基流动</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">提供高效能、低成本的多品类AI模型服务，助力开发者和企业快速实现AI应用落地。</p>
+                    </div>
+                </a>
+                <a href="https://www.qiniu.com/ai/agent" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/Kz7n/wwwqiniucom.png" alt="七牛云" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">七牛云</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">七牛云AI大模型服务，提供多模型接入、兼容主流API，支持企业级AI应用开发。</p>
+                    </div>
+                </a>
+                <a href="https://xinghuo.xfyun.cn/maas-home" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/7Wvq/xinghuoxfyuncn.png" alt="讯飞火星" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">讯飞火星</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">讯飞星火MaaS平台，提供一站式大模型服务与应用开发能力。</p>
+                    </div>
+                </a>
+                <a href="https://openrouter.ai/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/kC2s/openrouterai.png" alt="OpenRouter" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">OpenRouter</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">统一接口访问主流大模型，提供最优价格与高可用性，支持自定义数据策略。</p>
+                    </div>
+                </a>
+                <a href="https://zenmux.ai/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/tQ4c/zenmuxai.png" alt="ZenMux" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">ZenMux</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">企业级大语言模型平台，提供统一API、智能路由和AI模型保险，保障输出质量。</p>
+                    </div>
+                </a>
+                <a href="https://www.huaweicloud.com/ai/token-service.html" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/07/W2xj/activityhuaweicloudcom.png" alt="华为云" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">华为云</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">华为云大模型服务，提供百模千态聚合与超高并发支持，加速企业智能升级。</p>
+                    </div>
+                </a>
+                <a href="https://www.streamlake.com/product/wanqing" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/7xuZ/wwwstreamlakecom.png" alt="快手万擎" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">快手万擎</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">一站式大模型开发服务平台，提供微调、评测、推理到应用落地的全链路能力。</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Web3币圈板块 -->
+        <section id="web3" class="mb-12">
+            <h2 class="section-title">
+                <i class="fa fa-bitcoin text-secondary"></i>
+                Web3币圈
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4">
+                <a href="https://www.okx.com/zh-hans/agent-tradekit" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/Z4lv/wwwokxcom.png" alt="OKX Agen Tradekit" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">OKX Agen Tradekit</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">全球领先的数字资产交易平台，提供安全、便捷的加密货币交易服务。</p>
+                    </div>
+                </a>
+                <a href="https://www.binance.com/zh-CN/skills" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/20/fnJ8/wwwbinancecom.png" alt="Binance skills" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">Binance skills</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">币安技能中心：为AI智能体提供安全、便捷的加密货币交易与链上数据查询技能。</p>
+                    </div>
+                </a>
+                <a href="https://www.bitget.com/zh-CN/activity-hub/get-claw" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/20/dpD1/wwwbitgetcom.png" alt="Get Claw" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">Get Claw</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">全球首个开箱即用AI交易智能体，通过Telegram对话即可监控市场、分析行情并执行交易策略。</p>
+                    </div>
+                </a>
+                <a href="https://www.htx.com/zh-cn/skills" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/20/C8ee/wwwhtxcom.png" alt="HTX Skills" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">HTX Skills</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">HTX AI Skills 是 HTX 面向 AI Agent 生态推出的开放交易协议，让 AI 通过自然语言即可查询行情。</p>
+                    </div>
+                </a>
+                <a href="https://www.gate.com/zh/gateclaw" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/19/9dLa/wwwgatecom.png" alt="Gate Claw" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">Gate Claw</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">你的 Web3 AI智能体 特工，开盒即战，Alpha 到手</p>
+                    </div>
+                </a>
+                <a href="https://www.bybit.com/zh-MY/ai" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/20/4Bog/wwwbybitcom.png" alt="Bybit AI Hub" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">Bybit AI Hub</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">Bybit AI Hub 提供AI驱动的自动化交易助手，支持自然语言指令和本地化安全配置。</p>
+                    </div>
+                </a>
+                <a href="https://www.aicoin.com/zh-Hans/coinclaw" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/20/yq8K/wwwaicoincom.png" alt="Coin Claw" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">Coin Claw</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">一键部署Web3 AI交易助手，内置行情分析、策略回测与鲸鱼追踪功能。</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- 主机设备板块 -->
+        <section id="hardware" class="mb-12">
+            <h2 class="section-title">
+                <i class="fa fa-desktop text-secondary"></i>
+                主机设备
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4">
+                <a href="https://www.xiake.shop/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/20/Oz6x/wwwxiakeshop.png" alt="虾壳小主机" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">虾壳小主机</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">虾壳3.0小主机，DDR4内存，无风扇散热，低能耗设计。</p>
+                    </div>
+                </a>
+                <a href="https://www.apple.com/mac-mini/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-xl p-4 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-3">
+                    <img src="https://i.see.you/2026/03/20/2lEp/wwwapplecom.png" alt="Apple Mac mini" class="link-icon">
+                    <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-800 dark:text-darkText mb-1 truncate">Apple Mac mini</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">搭载M4芯片的Mac mini，超紧凑设计，前后端口，性能强劲，支持苹果智能。</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- 友情链接 -->
+        <section id="friends" class="mb-12">
+            <h2 class="section-title">
+                <i class="fa fa-link text-secondary"></i>
+                友情链接
+            </h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-10 gap-4">
+                <a href="https://www.ainav.link/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-lg p-3 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-2">
+                    <i class="fa fa-robot text-primary"></i>
+                    <span class="text-gray-700 dark:text-darkText">AI导航</span>
+                </a>
+                <a href="http://www.izhaomi.com/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-lg p-3 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-2">
+                    <i class="fa fa-globe text-primary"></i>
+                    <span class="text-gray-700 dark:text-darkText">域名交易</span>
+                </a>
+                <a href="http://xue.yiqifuye.com/6EQDPu" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-lg p-3 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-2">
+                    <i class="fa fa-graduation-cap text-primary"></i>
+                    <span class="text-gray-700 dark:text-darkText">教务资料库</span>
+                </a>
+                <a href="http://zd.yiqifuye.com/brADtL" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-lg p-3 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-2">
+                    <i class="fa fa-file-text text-primary"></i>
+                    <span class="text-gray-700 dark:text-darkText">公文资料库</span>
+                </a>
+                <a href="https://www.xiaobot.net.cn/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-lg p-3 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-2">
+                    <i class="fa fa-book text-primary"></i>
+                    <span class="text-gray-700 dark:text-darkText">小报童导航</span>
+                </a>
+                <a href="https://www.soruan.cn/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-lg p-3 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-2">
+                    <i class="fa fa-windows text-primary"></i>
+                    <span class="text-gray-700 dark:text-darkText">搜软正版软件</span>
+                </a>
+                <a href="https://www.sofuye.com/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-lg p-3 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-2">
+                    <i class="fa fa-search text-primary"></i>
+                    <span class="text-gray-700 dark:text-darkText">搜副业</span>
+                </a>
+                <a href="https://buy.lkami.cn/index" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-lg p-3 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-2">
+                    <i class="fa fa-vcard text-primary"></i>
+                    <span class="text-gray-700 dark:text-darkText">虚拟会员卡券</span>
+                </a>
+                <a href="https://cpsdh.acceboy.com/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-lg p-3 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-2">
+                    <i class="fa fa-google text-primary"></i>
+                    <span class="text-gray-700 dark:text-darkText">账号星球</span>
+                </a>
+                <a href="https://www.cpsnav.com/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-lg p-3 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-2">
+                    <i class="fa fa-money text-primary"></i>
+                    <span class="text-gray-700 dark:text-darkText">CPS导航</span>
+                </a>
+                <a href="https://www.vpswa.com" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-lg p-3 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-2">
+                    <i class="fa fa-cloud text-primary"></i>
+                    <span class="text-gray-700 dark:text-darkText">VPS导航</span>
+                </a>
+                <a href="http://www.shenzhendeyang.com/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-darkCard rounded-lg p-3 border border-gray-100 dark:border-slate-700 card-hover flex items-center gap-2">
+                    <i class="fa fa-copyright text-primary"></i>
+                    <span class="text-gray-700 dark:text-darkText">魔武网络科技</span>
+                </a>
+            </div>
+        </section>
+        </main>
+        </div>
+    </div>
+
+    <!-- 回到顶部按钮 -->
+    <button id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-primary text-white shadow-lg flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:bg-primary/90 hover:scale-110 z-50">
+        <i class="fa fa-arrow-up text-xl"></i>
+    </button>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-50 dark:bg-darkCard py-6 border-t border-gray-100 dark:border-slate-700 transition-colors duration-300">
+        <div class="max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 text-center text-gray-500 dark:text-gray-400 text-sm">
+            <p>@ 2026 灵虾导航 - 明快科技虾元素AI资源导航站 <span class="ml-2 px-2 py-0.5 bg-primary/10 text-primary rounded text-xs">V1.0</span></p>
+            <p class="mt-1">为你整理最全的OpenClaw生态资源，轻快便捷，一键直达</p>
+        </div>
+    </footer>
+
+    <script>
+        const html = document.documentElement;
+        const themeToggle = document.getElementById('themeToggle');
+        const searchInput = document.getElementById('searchInput');
+        const searchInputMobile = document.getElementById('searchInputMobile');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const backToTop = document.getElementById('backToTop');
+        const cards = document.querySelectorAll('main section a');
+
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                html.classList.add('dark');
+            }
+        }
+
+        function toggleTheme() {
+            html.classList.toggle('dark');
+            const isDark = html.classList.contains('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+
+        function toggleSidebar() {
+            sidebar.classList.toggle('-translate-x-full');
+            sidebarOverlay.classList.toggle('hidden');
+        }
+
+        function searchCards(query) {
+            const searchTerm = query.toLowerCase().trim();
+            cards.forEach(card => {
+                const title = card.querySelector('h3')?.textContent.toLowerCase() || '';
+                const description = card.querySelector('p')?.textContent.toLowerCase() || '';
+                const matches = title.includes(searchTerm) || description.includes(searchTerm);
+                card.style.display = matches || !searchTerm ? '' : 'none';
+            });
+
+            document.querySelectorAll('main section').forEach(section => {
+                const visibleCards = section.querySelectorAll('a[style=""]');
+                section.style.display = visibleCards.length > 0 || !searchTerm ? '' : 'none';
+            });
+        }
+
+        function updateSidebarActive() {
+            const sections = document.querySelectorAll('main section[id]');
+            const scrollPos = window.scrollY + 150;
+            document.querySelectorAll('.sidebar-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            sections.forEach(section => {
+                if (section.offsetTop <= scrollPos && section.offsetTop + section.offsetHeight > scrollPos) {
+                    const id = section.getAttribute('id');
+                    const activeLink = document.querySelector(`.sidebar-link[href="#${id}"]`);
+                    if (activeLink) activeLink.classList.add('active');
+                }
+            });
+        }
+
+        function handleScroll() {
+            if (window.scrollY > 300) {
+                backToTop.classList.remove('opacity-0', 'pointer-events-none');
+            } else {
+                backToTop.classList.add('opacity-0', 'pointer-events-none');
+            }
+            updateSidebarActive();
+        }
+
+        initTheme();
+        themeToggle.addEventListener('click', toggleTheme);
+        sidebarToggle.addEventListener('click', toggleSidebar);
+        searchInput.addEventListener('input', (e) => searchCards(e.target.value));
+        searchInputMobile.addEventListener('input', (e) => searchCards(e.target.value));
+        backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+        window.addEventListener('scroll', handleScroll);
+
+        document.querySelectorAll('.sidebar-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth < 1024) {
+                    toggleSidebar();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
