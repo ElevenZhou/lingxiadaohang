@@ -1,0 +1,783 @@
+{
+  "categories": [
+    {
+      "id": "lingxia-platform",
+      "name": "灵虾平台",
+      "icon": "fa-paw",
+      "links": [
+        {
+          "title": "OpenClaw官网",
+          "url": "https://openclaw.ai/",
+          "description": "跨平台个人AI助手，通过聊天应用管理邮件、日程等任务，支持本地部署和技能扩展。",
+          "icon": "https://i.see.you/2026/03/19/aX0x/openclawai.png"
+        },
+        {
+          "title": "OpenClaw官方github",
+          "url": "https://github.com/openclaw/openclaw",
+          "description": "跨平台个人AI助手，支持任意操作系统，以独特方式提供服务。",
+          "icon": "https://i.see.you/2026/02/20/n5Br/1a81fbf.png"
+        },
+        {
+          "title": "Discord官方服务器",
+          "url": "https://discord.gg/openclaw",
+          "description": "专为游戏玩家设计的语音聊天平台，支持实时语音、文字和视频通话。",
+          "icon": "https://i.see.you/2026/03/10/q0Gm/discordcom.png"
+        },
+        {
+          "title": "Kimi Claw",
+          "url": "https://www.kimi.com/bot",
+          "description": "7x24小时AI助手，具备长期记忆与自动化能力，支持主动执行定时任务。",
+          "icon": "https://i.see.you/2026/03/19/vt0Z/wwwkimicom.png"
+        },
+        {
+          "title": "MaxClaw",
+          "url": "https://agent.minimaxi.com/max-claw",
+          "description": "基于 MiniMax OpenClaw 的 AI 智能体创建平台，支持定制专业技能和多智能体协作。",
+          "icon": "https://i.see.you/2026/03/19/aE2u/agentminimaxicom.png"
+        },
+        {
+          "title": "ArkClaw",
+          "url": "https://www.volcengine.com/",
+          "description": "字节跳动旗下AI云服务平台，提供豆包大模型和AI云原生一站式服务。",
+          "icon": "https://i.see.you/2026/03/19/nR9f/wwwvolcenginecom.png"
+        },
+        {
+          "title": "飞书OpenClaw",
+          "url": "https://miaoda.feishu.cn/bot",
+          "description": "飞书 OpenClaw 提供原版 OpenClaw 的一键部署服务，开箱即用。",
+          "icon": "https://i.see.you/2026/03/19/Qg1w/openclawfeishucn.png"
+        },
+        {
+          "title": "扣子Coze",
+          "url": "https://www.coze.cn/",
+          "description": "一站式AI办公助手，集成写作、PPT、表格、设计等全功能，助力多场景任务自动化。",
+          "icon": "https://i.see.you/2026/03/19/Y3nb/wwwcozecn.png"
+        },
+        {
+          "title": "DueClaw",
+          "url": "https://cloud.baidu.com/product/duclaw.html",
+          "description": "百度智能云DuClaw是7x24小时在线个人AI助理，订阅千帆Coding Plan即可低成本快速构建。",
+          "icon": "https://i.see.you/2026/03/19/aJ8c/cloudbaiducom.png"
+        },
+        {
+          "title": "StepClaw",
+          "url": "https://www.stepfun.com/openclaw",
+          "description": "阶跃AI是个人效率助手，提供知识查询、语言学习、创意写作和代码编写等功能。",
+          "icon": "https://i.see.you/2026/03/19/0znV/wwwstepfuncom.png"
+        },
+        {
+          "title": "QClaw",
+          "url": "https://claw.guanjia.qq.com/",
+          "description": "腾讯出品的微信远程AI助手，通过微信操控电脑处理文件、执行任务，无需编程基础。",
+          "icon": "https://i.see.you/2026/03/19/b9nZ/clawguanjiaqqcom.png"
+        },
+        {
+          "title": "Lobsterai有道龙虾",
+          "url": "https://lobsterai.youdao.com/",
+          "description": "有道AI个人助理，7×24小时全场景智能服务。",
+          "icon": "https://i.see.you/2026/03/19/h4Jn/lobsteraiyoudaocom.png"
+        },
+        {
+          "title": "Codebuddy",
+          "url": "https://www.codebuddy.cn/work/",
+          "description": "腾讯云推出的AI办公工具，支持多Agent并行处理复杂任务，提升工作效率。",
+          "icon": "https://i.see.you/2026/02/20/ct8U/b562d24.png"
+        },
+        {
+          "title": "AutoClaw",
+          "url": "https://autoglm.zhipuai.cn/autoclaw/",
+          "description": "支持OpenClaw一键安装的AI助手，集成飞书、模型热插拔与自动化能力，小白也能快速上手。",
+          "icon": "https://i.see.you/2026/03/19/lI2x/autoglmzhipuaicn.png"
+        },
+        {
+          "title": "悟空",
+          "url": "https://www.dingtalk.com/wukong",
+          "description": "悟空是一款智能助手应用，提供便捷的AI服务。",
+          "icon": "https://i.see.you/2026/03/19/uz6G/wwwdingtalkcom.png"
+        },
+        {
+          "title": "AstronClaw",
+          "url": "https://agent.xfyun.cn/astron-claw",
+          "description": "一站式智能体开发平台，支持灵活创建专业智能体，整合丰富资源并支持多端发布。",
+          "icon": "https://i.see.you/2026/03/19/qj9F/agentxfyuncn.png"
+        },
+        {
+          "title": "360安全龙虾",
+          "url": "https://claw.360.cn/",
+          "description": "360安全龙虾是一款多模型AI助手，提供技能生态与安全保障，支持Windows客户端下载。",
+          "icon": "https://i.see.you/2026/03/20/wSe2/360.png"
+        },
+        {
+          "title": "QoderWork",
+          "url": "https://qoder.com/qoderwork",
+          "description": "本地AI桌面助手，自主规划执行任务，保护隐私，支持多格式文件处理。",
+          "icon": "https://i.see.you/2026/03/19/8vTy/qodercom.png"
+        },
+        {
+          "title": "阶跃桌面伙伴",
+          "url": "https://www.stepfun.com/download",
+          "description": "操作系统级AI助手，跨平台自主处理信息、管理文件并执行定时任务，支持个性化定制。",
+          "icon": "https://i.see.you/2026/03/19/0znV/wwwstepfuncom.png"
+        }
+      ]
+    },
+    {
+      "id": "ai-models",
+      "name": "AI模型",
+      "icon": "fa-microchip",
+      "links": [
+        {
+          "title": "Kimi",
+          "url": "https://platform.moonshot.cn/",
+          "description": "提供万亿参数K2.5大模型API，支持超长上下文和多模态理解，助力开发者构建AI应用。",
+          "icon": "https://i.see.you/2026/03/19/vt0Z/wwwkimicom.png"
+        },
+        {
+          "title": "MiniMax",
+          "url": "https://www.minimaxi.com/",
+          "description": "全球领先的通用人工智能公司，提供多模态大模型及AI原生产品，服务超2亿用户。",
+          "icon": "https://i.see.you/2026/03/20/bQf2/wwwminimaxicom.png"
+        },
+        {
+          "title": "智谱GLM",
+          "url": "https://www.bigmodel.cn/",
+          "description": "智谱AI开放平台提供国产通用大模型及多模态视觉模型，支持行业应用与AI开发。",
+          "icon": "https://i.see.you/2026/02/20/s7Qr/9618c21.png"
+        },
+        {
+          "title": "DeepSeek",
+          "url": "https://www.deepseek.com/",
+          "description": "DeepSeek专注于研发领先的通用人工智能模型，提供免费对话、API调用及开源大模型服务。",
+          "icon": "https://i.see.you/2026/03/20/spT4/wwwdeepseekcom.png"
+        },
+        {
+          "title": "千问QWen",
+          "url": "https://www.aliyun.com/product/tongyi",
+          "description": "阿里云千问大模型提供一站式AI推理与部署服务，具备高性能、低成本及全模态能力。",
+          "icon": "https://i.see.you/2026/02/20/J4fz/b0b2306.png"
+        },
+        {
+          "title": "豆包",
+          "url": "https://www.doubao.com/chat/",
+          "description": "豆包AI助手集成Seedance 2.0视频生成模型，提供免费智能对话、创作辅助与灵感激发服务。",
+          "icon": "https://i.see.you/2026/03/20/ou2D/wwwdoubaocom.png"
+        },
+        {
+          "title": "Claude",
+          "url": "https://platform.claude.com/",
+          "description": "基于Claude API的AI应用开发平台",
+          "icon": "https://i.see.you/2026/03/20/8Syq/platformclaudecom.png"
+        },
+        {
+          "title": "Gemini",
+          "url": "https://aistudio.google.com/",
+          "description": "快速从提示到生产，使用 Gemini 加速 AI 应用开发。",
+          "icon": "https://i.see.you/2026/02/20/m1Lg/e7e8302.png"
+        },
+        {
+          "title": "ChatGPT",
+          "url": "https://platform.openai.com/",
+          "description": "提供OpenAI API资源、教程和动态示例，助力开发者高效集成人工智能功能。",
+          "icon": "https://i.see.you/2026/03/20/r4Uu/platformopenaicom.png"
+        },
+        {
+          "title": "Grok",
+          "url": "https://console.x.ai/",
+          "description": "提供Grok AI的API接口和开发者工具，支持文本、语音及图像生成功能。",
+          "icon": "https://i.see.you/2026/03/20/bTm0/consolexai.png"
+        },
+        {
+          "title": "Llama",
+          "url": "https://www.llama.com/",
+          "description": "Meta推出的开源大语言模型家族，用于像ChatGPT一样理解和生成文本。",
+          "icon": "https://i.see.you/2026/03/20/x8Va/wwwllamacom.png"
+        },
+        {
+          "title": "Mistral",
+          "url": "https://mistral.ai/",
+          "description": "为企业提供前沿AI平台，支持定制化AI助手、智能体部署及私有化模型训练。",
+          "icon": "https://i.see.you/2026/03/20/w0Xi/mistralai.png"
+        },
+        {
+          "title": "Mimo",
+          "url": "https://mimo.xiaomi.com/zh/",
+          "description": "小米MiMo官方博客，分享探索与热爱，提供中英双语内容。",
+          "icon": "https://i.see.you/2026/03/20/i7Bh/mimoxiaomicom.png"
+        },
+        {
+          "title": "讯飞星火",
+          "url": "https://xinghuo.xfyun.cn/sparkapi",
+          "description": "讯飞星火是科大讯飞推出的AI助手，具备跨领域知识、语言理解和多任务执行能力。",
+          "icon": "https://i.see.you/2026/03/19/7Wvq/xinghuoxfyuncn.png"
+        },
+        {
+          "title": "腾讯混元",
+          "url": "https://cloud.tencent.com/product/tclm",
+          "description": "腾讯自研多模态大模型，提供文本、图像、视频、3D生成及企业级AI服务。",
+          "icon": "https://i.see.you/2026/03/19/t5oA/cloudtencentcom.png"
+        }
+      ]
+    },
+    {
+      "id": "learning-resources",
+      "name": "学习资源",
+      "icon": "fa-book",
+      "links": [
+        {
+          "title": "OpenClaw官方手册",
+          "url": "https://docs.openclaw.ai/zh-CN",
+          "description": "OpenClaw 是一个 AI 智能体网关，支持连接多消息平台，并提供 Web 控制界面统一管理。",
+          "icon": "https://i.see.you/2026/03/19/qT6z/docsopenclawai.png"
+        },
+        {
+          "title": "OpenClaw橙皮书",
+          "url": "https://my.feishu.cn/wiki/H27Iw9ussiaYbokymhncExtjnAh",
+          "description": "OpenClaw橙皮书：从入门到精通.PDF",
+          "icon": "https://i.see.you/2026/03/19/Qg1w/openclawfeishucn.png"
+        },
+        {
+          "title": "万象AI实验室",
+          "url": "https://yunyinghui.feishu.cn/wiki/Ru7PwG82qiDGo1kGMFZcxqpGnnf",
+          "description": "OpenClaw学习手册",
+          "icon": "https://i.see.you/2026/03/19/W7ai/yunyinghuifeishucn.png"
+        },
+        {
+          "title": "WaytoAGI",
+          "url": "https://waytoagi.feishu.cn/wiki/CCR4wl3upi6dF9kVE5YcAcGcnlU",
+          "description": "WaytoAGI：通往AGI之路。详解OpenClaw",
+          "icon": "https://i.see.you/2026/03/19/4uzG/waytoagifeishucn.png"
+        },
+        {
+          "title": "非凡产研",
+          "url": "https://uniquecapital.feishu.cn/wiki/Nwwiwh6PNiesZqkWNw7cWegjn2c",
+          "description": "养虾乐园",
+          "icon": "https://i.see.you/2026/03/19/Qg1w/openclawfeishucn.png"
+        },
+        {
+          "title": "麻小玩虾指南",
+          "url": "https://t0woxppdywz.feishu.cn/wiki/Oxf0wcTECie8KkkwkIlc6psanNe",
+          "description": "玩虾指南持续更新",
+          "icon": "https://i.see.you/2026/03/19/Qg1w/openclawfeishucn.png"
+        },
+        {
+          "title": "OpenClaw中文教程",
+          "url": "https://my.feishu.cn/wiki/NzvOwzHdKiwSe2kPLx0cs1jlncg",
+          "description": "OpenClaw中文教程",
+          "icon": "https://i.see.you/2026/03/19/Qg1w/openclawfeishucn.png"
+        },
+        {
+          "title": "OpenClaw入门",
+          "url": "https://my.feishu.cn/docx/P6zsdsgYco6i4XxLeIccvlpvnQe",
+          "description": "OpenClaw从入门到精通",
+          "icon": "https://i.see.you/2026/03/19/Qg1w/openclawfeishucn.png"
+        },
+        {
+          "title": "Hello Claw教程",
+          "url": "https://datawhalechina.github.io/hello-claw/cn/adopt/intro/",
+          "description": "OpenClaw：从对话到执行的 AI 革命",
+          "icon": "https://i.see.you/2026/03/20/3hAb/github.jpeg"
+        },
+        {
+          "title": "Awesome教程",
+          "url": "https://awesome.tryopenclaw.asia/",
+          "description": "从零开始玩转OpenClaw的全面中文教程，涵盖部署、实战与避坑指南。",
+          "icon": "https://i.see.you/2026/03/20/cZp5/ClawNav.png"
+        },
+        {
+          "title": "飞书官方修炼指南",
+          "url": "https://larkcommunity.feishu.cn/wiki/GGJPwJ2IfiTynVk2Vy4cZbRvn2f",
+          "description": "OpenClaw x 飞书官方修炼指南",
+          "icon": "https://i.see.you/2026/03/19/Qg1w/openclawfeishucn.png"
+        },
+        {
+          "title": "中文用例大全",
+          "url": "https://github.com/AlexAnys/awesome-openclaw-usecases-zh",
+          "description": "OpenClaw AI智能体中文用例大全，提供40多个真实场景，涵盖自动化办公、内容创作等。",
+          "icon": "https://i.see.you/2026/02/20/n5Br/1a81fbf.png"
+        },
+        {
+          "title": "Reddit社区",
+          "url": "https://www.reddit.com/r/openclaw/",
+          "description": "Reddit是一个基于兴趣社区的社交平台，用户可以讨论各种话题并分享内容。",
+          "icon": "https://i.see.you/2026/03/10/dHi6/wwwredditcom.png"
+        },
+        {
+          "title": "龙虾俱乐部",
+          "url": "https://longxiabot.club/",
+          "description": "OpenClaw中文资源站，提供结构化安装部署、Skills资源和生态更新指南。",
+          "icon": "https://i.see.you/2026/03/22/i8jP/longxiabotclub.png"
+        }
+      ]
+    },
+    {
+      "id": "cloud-deploy",
+      "name": "云端部署",
+      "icon": "fa-cloud",
+      "links": [
+        {
+          "title": "阿里云",
+          "url": "https://www.aliyun.com/activity/ecs/clawdbot?userCode=v6lqcoce",
+          "description": "基于阿里云百炼的7*24小时AI助理，支持消息指令执行，快速构建个性化智能体。",
+          "icon": "https://i.see.you/2026/02/20/J4fz/b0b2306.png"
+        },
+        {
+          "title": "腾讯云",
+          "url": "https://curl.qcloud.com/qiUT4ZrJ",
+          "description": "在云端秒级部署全能AI助手，支持主流IM，7x24小时在线响应。",
+          "icon": "https://i.see.you/2026/03/19/t5oA/cloudtencentcom.png"
+        },
+        {
+          "title": "火山引擎",
+          "url": "https://www.volcengine.com/activity/clawdbot",
+          "description": "一键部署 OpenClaw，分钟级部署，拥有您的私人AI管家。云服务器包月低至￥9.9",
+          "icon": "https://i.see.you/2026/03/19/nR9f/wwwvolcenginecom.png"
+        },
+        {
+          "title": "百度智能云",
+          "url": "https://cloud.baidu.com/product/BCC/moltbot.html",
+          "description": "百度智能云OpenClaw，一键部署7x24小时AI助理，无缝接入主流办公应用。",
+          "icon": "https://i.see.you/2026/03/19/aJ8c/cloudbaiducom.png"
+        },
+        {
+          "title": "华为云",
+          "url": "https://activity.huaweicloud.com/openclaw.html",
+          "description": "华为云提供OpenClaw一键部署服务，9.9元起即可快速拥有AI助理，支持接入主流办公平台。",
+          "icon": "https://i.see.you/2026/03/07/W2xj/activityhuaweicloudcom.png"
+        },
+        {
+          "title": "京东云",
+          "url": "https://www.jdcloud.com/cn/pages/openclaw",
+          "description": "京东云提供一站式云计算服务，涵盖弹性计算、存储、AI及安全等产品。",
+          "icon": "https://i.see.you/2026/03/20/0zaM/4cb6029.png"
+        },
+        {
+          "title": "国家超算互联网",
+          "url": "https://www.scnet.cn/ui/chatbot/openclaw",
+          "description": "提供智能助手部署服务，支持一键部署、API调用及共享存储，保障隐私安全。",
+          "icon": "https://i.see.you/2026/03/20/b0Yi/dc72b4f.png"
+        },
+        {
+          "title": "天翼云",
+          "url": "https://www.ctyun.cn/act/OpenClaw",
+          "description": "安全隔离版OpenClaw部署服务，让AI干活不“失控”",
+          "icon": "https://i.see.you/2026/03/19/0llJ/wwwctyuncn.png"
+        }
+      ]
+    },
+    {
+      "id": "skills",
+      "name": "Skill技能",
+      "icon": "fa-cogs",
+      "links": [
+        {
+          "title": "ClawHub",
+          "url": "https://clawhub.ai/",
+          "description": "专为AI代理设计的技能注册中心，支持向量搜索与版本管理，开源无门槛。",
+          "icon": "https://i.see.you/2026/03/19/s8Tf/clawhubai.png"
+        },
+        {
+          "title": "Skill.sh",
+          "url": "https://skills.sh/",
+          "description": "AI智能体技能库，提供可复用能力，一键安装增强代理功能。",
+          "icon": "https://i.see.you/2026/03/19/hXx2/skillssh.png"
+        },
+        {
+          "title": "Skill Hub",
+          "url": "https://skillhub.tencent.com/",
+          "description": "专为中国用户优化的AI技能社区，精选高质量技能，安全审核，实用性强。",
+          "icon": "https://i.see.you/2026/03/19/Zyc5/skillhubtencentcom.png"
+        },
+        {
+          "title": "虾评Skill",
+          "url": "https://xiaping.coze.site/",
+          "description": "面向Agent的精品技能分享评测平台，支持OpenClaw框架，即装即用。",
+          "icon": "https://xiaping.coze.site/angry-shrimp.png"
+        },
+        {
+          "title": "Skill Hub",
+          "url": "https://www.skill-cn.com/",
+          "description": "聚合实战技能案例与可复用方案，提供高效工作流与AI工具应用指南。",
+          "icon": "https://i.see.you/2026/03/19/1fYj/wwwskill-cncom.png"
+        },
+        {
+          "title": "Skill Hub中国",
+          "url": "https://www.skill-cn.com/",
+          "description": "聚合实战技能案例与可复用方案，提供AI编程、设计、自动化等高效工作流。",
+          "icon": "https://i.see.you/2026/03/19/1fYj/wwwskill-cncom.png"
+        },
+        {
+          "title": "Agent Skills Hub",
+          "url": "https://agentskillshub.top/",
+          "description": "发现、比较和探索海量开源AI智能体技能、工具与MCP服务器，优化您的AI工作流。",
+          "icon": "https://i.see.you/2026/03/19/lQb8/agentskillshubtop.png"
+        },
+        {
+          "title": "Openclaw Directory",
+          "url": "https://openclawdirectory.co.uk/",
+          "description": "OpenClaw工具目录，提供部署器、技能和插件等资源，方便查找与测试。",
+          "icon": "https://i.see.you/2026/03/19/q5vC/openclawdirectorycouk.png"
+        },
+        {
+          "title": "OpenClaw Dir",
+          "url": "https://openclawdir.com/",
+          "description": "OpenClaw AI助手生态社区目录，提供技能、插件和职位资源。",
+          "icon": "https://i.see.you/2026/03/19/8lcH/openclawdircom.png"
+        },
+        {
+          "title": "Skills MP",
+          "url": "https://skillsmp.com/zh",
+          "description": "聚合超过50万个AI助手技能，兼容Claude、Codex和ChatGPT，采用开放的SKILL.md标准。",
+          "icon": "https://i.see.you/2026/03/19/Oi7a/skillsmpcom.png"
+        },
+        {
+          "title": "Awesome Skills",
+          "url": "https://github.com/VoltAgent/awesome-openclaw-skills",
+          "description": "收录5400多个OpenClaw技能，按类别整理，扩展AI助手本地功能。",
+          "icon": "https://i.see.you/2026/02/20/n5Br/1a81fbf.png"
+        },
+        {
+          "title": "Crypto Skills",
+          "url": "https://cryptoskills.dev/",
+          "description": "开源AI智能体技能库，覆盖以太坊、Solana等15条链的97种协议，提供生产就绪的代码模块。",
+          "icon": "https://i.see.you/2026/03/20/n3Ny/crypto.png"
+        },
+        {
+          "title": "Cocoloop",
+          "url": "https://hub.cocoloop.cn/",
+          "description": "更快更安全的AI Agent技能商店，提供数千个经过安全认证的精选技能。",
+          "icon": "https://i.see.you/2026/03/20/Dml9/cocoloop.png"
+        }
+      ]
+    },
+    {
+      "id": "agent-resources",
+      "name": "Agent资源",
+      "icon": "fa-users",
+      "links": [
+        {
+          "title": "MoltBook",
+          "url": "https://www.moltbook.cn/",
+          "description": "智能体社交网络，支持发布、讨论、点赞与创建社区，人类可围观学习。",
+          "icon": "https://www.moltbook.cn/logo.png"
+        },
+        {
+          "title": "InStreet",
+          "url": "https://instreet.coze.site/",
+          "description": "专为AI Agent打造的社交平台，支持发帖、互动与技能分享，人类可围观。",
+          "icon": "https://i.see.you/2026/03/19/hXx2/skillssh.png"
+        },
+        {
+          "title": "虾聊",
+          "url": "https://clawdchat.ai/",
+          "description": "AI Agent社交平台，支持机器人发帖互动与人类围观，提供去中心化身份和语义发现功能。",
+          "icon": "https://i.see.you/2026/03/19/Znl5/clawdchatai.png"
+        },
+        {
+          "title": "虾聊",
+          "url": "https://xialiaoai.com/",
+          "description": "专为AI Agent打造的社交网络，分享技术、探讨伦理、交流日常。",
+          "icon": "https://i.see.you/2026/03/19/E3no/xialiaoaicom.png"
+        },
+        {
+          "title": "AgentMail",
+          "url": "https://www.agentmail.to/",
+          "description": "为AI智能体提供专属邮箱的API服务，支持实时收发、附件处理和自定义域名。",
+          "icon": "https://i.see.you/2026/03/19/voZ8/wwwagentmailto.png"
+        },
+        {
+          "title": "MailBoxKit",
+          "url": "https://mailboxkit.com/",
+          "description": "为AI智能体提供真实邮箱地址的邮件基础设施。",
+          "icon": "https://i.see.you/2026/03/20/abG3/mail.png"
+        },
+        {
+          "title": "Souls.zip",
+          "url": "https://souls.zip/shop",
+          "description": "提供生产级AI智能体灵魂与技能，涵盖工程、设计、运营等多领域，支持免费与付费选项。",
+          "icon": "https://i.see.you/2026/03/19/M1jy/soulszip.png"
+        },
+        {
+          "title": "Openclaw Startups",
+          "url": "https://trustmrr.com/special-category/openclaw",
+          "description": "开源AI助手生态，无需代码即可连接Telegram、Discord等平台，并追踪相关创业公司营收数据。",
+          "icon": "https://i.see.you/2026/03/19/Dn0a/trustmrrcom.png"
+        },
+        {
+          "title": "Claw Bench排行",
+          "url": "https://clawbench.net/",
+          "description": "AI编程智能体性能排行榜，提供跨框架、模型和任务类别的标准化评估。",
+          "icon": "https://i.see.you/2026/03/19/xOd0/clawbenchnet.png"
+        },
+        {
+          "title": "Claw Pal",
+          "url": "https://clawpal.xyz/",
+          "description": "可视化管理和修复OpenClaw AI代理的免费桌面应用，支持多平台，无需手动编辑配置文件。",
+          "icon": "https://i.see.you/2026/03/19/Bf9l/clawpalxyz.png"
+        },
+        {
+          "title": "ClawWatcher",
+          "url": "https://clawwatcher.com/",
+          "description": "实时监控AI代理成本，提供用量看板、预算限制和支出警报。",
+          "icon": "https://i.see.you/2026/03/19/6Hki/clawwatchercom.png"
+        },
+        {
+          "title": "ClawManager",
+          "url": "https://clawmanager.ai/",
+          "description": "免费管理AI智能体，支持多平台部署与自动化，无需代码即可轻松配置。",
+          "icon": "https://i.see.you/2026/03/19/Csj3/clawmanagerai.png"
+        },
+        {
+          "title": "Control Center",
+          "url": "https://github.com/TianyiDataScience/openclaw-control-center",
+          "description": "将OpenClaw从黑盒转变为本地可视化控制中心，实现可见、可信与可控。",
+          "icon": "https://i.see.you/2026/02/20/n5Br/1a81fbf.png"
+        },
+        {
+          "title": "水产市场",
+          "url": "https://openclawmp.cc/",
+          "description": "探索、分享、安装AI Agent技能与插件，实现智能体的持续进化与协作。",
+          "icon": "https://i.see.you/2026/03/19/hXx2/skillssh.png"
+        },
+        {
+          "title": "EdgeOne ClawScan",
+          "url": "https://matrix.tencent.com/clawscan/",
+          "description": "AI绘画工具，提供智能图像生成服务。",
+          "icon": "https://matrix.tencent.com/clawscan/images/logo.png"
+        }
+      ]
+    },
+    {
+      "id": "security",
+      "name": "安全养虾",
+      "icon": "fa-shield",
+      "links": [
+        {
+          "title": "暴露监控面板",
+          "url": "https://openclaw.allegro.earth/",
+          "description": "公开暴露的OpenClaw实例监控面板，用于防御性安全感知。",
+          "icon": "https://i.see.you/2026/03/19/p6Oz/openclawallegroearth.png"
+        },
+        {
+          "title": "OpenClaw极简安全实践指南",
+          "url": "https://mp.weixin.qq.com/s/R_hJseodUa8Q9eU4qUvuAg",
+          "description": "慢雾安全团队发布的OpenClaw安全实践指南，构建三层防御矩阵，应对智能体专属风险。",
+          "icon": "https://i.see.you/2026/03/20/4lzW/c65b68a.png"
+        }
+      ]
+    },
+    {
+      "id": "maas",
+      "name": "MaaS平台",
+      "icon": "fa-webhook",
+      "links": [
+        {
+          "title": "阿里云",
+          "url": "https://bailian.console.aliyun.com/",
+          "description": "阿里云大模型服务平台，提供模型训练、部署、推理一站式AI服务。",
+          "icon": "https://i.see.you/2026/02/20/J4fz/b0b2306.png"
+        },
+        {
+          "title": "火山方舟",
+          "url": "https://www.volcengine.com/product/ark",
+          "description": "字节跳动大模型服务平台，提供一站式大模型服务与应用开发能力。",
+          "icon": "https://i.see.you/2026/03/19/nR9f/wwwvolcenginecom.png"
+        },
+        {
+          "title": "百度千帆",
+          "url": "https://cloud.baidu.com/product-s/qianfan_home",
+          "description": "百度智能云千帆平台，一站式企业级大模型开发与应用服务平台。",
+          "icon": "https://i.see.you/2026/03/19/aJ8c/cloudbaiducom.png"
+        },
+        {
+          "title": "硅基流动",
+          "url": "https://www.siliconflow.cn/",
+          "description": "提供高效能、低成本的多品类AI模型服务，助力开发者和企业快速实现AI应用落地。",
+          "icon": "https://i.see.you/2026/03/19/1Ycx/wwwsiliconflowcn.png"
+        },
+        {
+          "title": "七牛云",
+          "url": "https://www.qiniu.com/ai/agent",
+          "description": "七牛云AI大模型服务，提供多模型接入、兼容主流API，支持企业级AI应用开发。",
+          "icon": "https://i.see.you/2026/03/19/Kz7n/wwwqiniucom.png"
+        },
+        {
+          "title": "讯飞火星",
+          "url": "https://xinghuo.xfyun.cn/maas-home",
+          "description": "讯飞星火MaaS平台，提供一站式大模型服务与应用开发能力。",
+          "icon": "https://i.see.you/2026/03/19/7Wvq/xinghuoxfyuncn.png"
+        },
+        {
+          "title": "OpenRouter",
+          "url": "https://openrouter.ai/",
+          "description": "统一接口访问主流大模型，提供最优价格与高可用性，支持自定义数据策略。",
+          "icon": "https://i.see.you/2026/03/19/kC2s/openrouterai.png"
+        },
+        {
+          "title": "ZenMux",
+          "url": "https://zenmux.ai/",
+          "description": "企业级大语言模型平台，提供统一API、智能路由和AI模型保险，保障输出质量。",
+          "icon": "https://i.see.you/2026/03/19/tQ4c/zenmuxai.png"
+        },
+        {
+          "title": "华为云",
+          "url": "https://www.huaweicloud.com/ai/token-service.html",
+          "description": "华为云大模型服务，提供百模千态聚合与超高并发支持，加速企业智能升级。",
+          "icon": "https://i.see.you/2026/03/07/W2xj/activityhuaweicloudcom.png"
+        },
+        {
+          "title": "快手万擎",
+          "url": "https://www.streamlake.com/product/wanqing",
+          "description": "一站式大模型开发服务平台，提供微调、评测、推理到应用落地的全链路能力。",
+          "icon": "https://i.see.you/2026/03/19/7xuZ/wwwstreamlakecom.png"
+        }
+      ]
+    },
+    {
+      "id": "web3",
+      "name": "Web3币圈",
+      "icon": "fa-bitcoin",
+      "links": [
+        {
+          "title": "OKX Agen Tradekit",
+          "url": "https://www.okx.com/zh-hans/agent-tradekit",
+          "description": "全球领先的数字资产交易平台，提供安全、便捷的加密货币交易服务。",
+          "icon": "https://i.see.you/2026/03/19/Z4lv/wwwokxcom.png"
+        },
+        {
+          "title": "Binance skills",
+          "url": "https://www.binance.com/zh-CN/skills",
+          "description": "币安技能中心：为AI智能体提供安全、便捷的加密货币交易与链上数据查询技能。",
+          "icon": "https://i.see.you/2026/03/20/fnJ8/wwwbinancecom.png"
+        },
+        {
+          "title": "Get Claw",
+          "url": "https://www.bitget.com/zh-CN/activity-hub/get-claw",
+          "description": "全球首个开箱即用AI交易智能体，通过Telegram对话即可监控市场、分析行情并执行交易策略。",
+          "icon": "https://i.see.you/2026/03/20/dpD1/wwwbitgetcom.png"
+        },
+        {
+          "title": "HTX Skills",
+          "url": "https://www.htx.com/zh-cn/skills",
+          "description": "HTX AI Skills 是 HTX 面向 AI Agent 生态推出的开放交易协议，让 AI 通过自然语言即可查询行情。",
+          "icon": "https://i.see.you/2026/03/20/C8ee/wwwhtxcom.png"
+        },
+        {
+          "title": "Gate Claw",
+          "url": "https://www.gate.com/zh/gateclaw",
+          "description": "你的 Web3 AI智能体 特工，开盒即战，Alpha 到手",
+          "icon": "https://i.see.you/2026/03/19/9dLa/wwwgatecom.png"
+        },
+        {
+          "title": "Bybit AI Hub",
+          "url": "https://www.bybit.com/zh-MY/ai",
+          "description": "Bybit AI Hub 提供AI驱动的自动化交易助手，支持自然语言指令和本地化安全配置。",
+          "icon": "https://i.see.you/2026/03/20/4Bog/wwwbybitcom.png"
+        },
+        {
+          "title": "Coin Claw",
+          "url": "https://www.aicoin.com/zh-Hans/coinclaw",
+          "description": "一键部署Web3 AI交易助手，内置行情分析、策略回测与鲸鱼追踪功能。",
+          "icon": "https://i.see.you/2026/03/20/yq8K/wwwaicoincom.png"
+        }
+      ]
+    },
+    {
+      "id": "hardware",
+      "name": "主机设备",
+      "icon": "fa-desktop",
+      "links": [
+        {
+          "title": "虾壳小主机",
+          "url": "https://www.xiake.shop/",
+          "description": "虾壳3.0小主机，DDR4内存，无风扇散热，低能耗设计。",
+          "icon": "https://i.see.you/2026/03/20/Oz6x/wwwxiakeshop.png"
+        },
+        {
+          "title": "Apple Mac mini",
+          "url": "https://www.apple.com/mac-mini/",
+          "description": "搭载M4芯片的Mac mini，超紧凑设计，前后端口，性能强劲，支持苹果智能。",
+          "icon": "https://i.see.you/2026/03/20/2lEp/wwwapplecom.png"
+        }
+      ]
+    },
+    {
+      "id": "friends",
+      "name": "友情链接",
+      "icon": "fa-link",
+      "links": [
+        {
+          "title": "AI导航",
+          "url": "https://www.ainav.link/",
+          "description": "AI导航",
+          "icon": "fa-robot"
+        },
+        {
+          "title": "域名交易",
+          "url": "http://www.izhaomi.com/",
+          "description": "域名交易",
+          "icon": "fa-globe"
+        },
+        {
+          "title": "教务资料库",
+          "url": "http://xue.yiqifuye.com/6EQDPu",
+          "description": "教务资料库",
+          "icon": "fa-graduation-cap"
+        },
+        {
+          "title": "公文资料库",
+          "url": "http://zd.yiqifuye.com/brADtL",
+          "description": "公文资料库",
+          "icon": "fa-file-text"
+        },
+        {
+          "title": "小报童导航",
+          "url": "https://www.xiaobot.net.cn/",
+          "description": "小报童导航",
+          "icon": "fa-book"
+        },
+        {
+          "title": "搜软正版软件",
+          "url": "https://www.soruan.cn/",
+          "description": "搜软正版软件",
+          "icon": "fa-windows"
+        },
+        {
+          "title": "搜副业",
+          "url": "https://www.sofuye.com/",
+          "description": "搜副业",
+          "icon": "fa-search"
+        },
+        {
+          "title": "虚拟会员卡券",
+          "url": "https://buy.lkami.cn/index",
+          "description": "虚拟会员卡券",
+          "icon": "fa-vcard"
+        },
+        {
+          "title": "账号星球",
+          "url": "https://cpsdh.acceboy.com/",
+          "description": "账号星球",
+          "icon": "fa-google"
+        },
+        {
+          "title": "CPS导航",
+          "url": "https://www.cpsnav.com/",
+          "description": "CPS导航",
+          "icon": "fa-money"
+        },
+        {
+          "title": "VPS导航",
+          "url": "https://www.vpswa.com",
+          "description": "VPS导航",
+          "icon": "fa-cloud"
+        },
+        {
+          "title": "魔武网络科技",
+          "url": "http://www.shenzhendeyang.com/",
+          "description": "魔武网络科技",
+          "icon": "fa-copyright"
+        }
+      ]
+    }
+  ]
+}
